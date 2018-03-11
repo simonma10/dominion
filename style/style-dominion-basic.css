@@ -1,0 +1,59 @@
+body {
+    background-color: rgba(244, 248, 214, 0.98);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Federo', monospace;
+}
+p {
+    font-family: 'Gafata', monospace;
+}
+
+.border-image-test {
+    width: 90vw;
+    height: 65vh;
+
+    border: 15px solid orange;
+    /* border-image: url("../assets/images/501-Troilus-and-Criseyde-III-leafy-border-q90-1024x768.jpg") 10% 8% 10% 8% repeat; */
+    border-image: url("../assets/images/borderdecoration.png") 25% 10% 25% 10% repeat;
+
+}
+.page-header {
+    width: 90vw;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    background-color: rgba(182, 186, 160, 0.98);
+    /*border: 2px #8b5821 double;
+    border-width: 10px;*/
+    border-radius: 10px;
+}
+
+.page-header-text {
+    /*width: 50vw;*/
+    padding: 1%;
+    text-align: center;
+    color: #291006;
+    font-family: 'Federo';
+    font-size: 32px;
+    font-weight: bold;
+
+}
+
+.force-container-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.force-container {
+    width: 45%;
+    padding: 1%;
+    margin: 2%;
+    border: saddlebrown 1px solid;
+    border-radius: 10px;
+}
