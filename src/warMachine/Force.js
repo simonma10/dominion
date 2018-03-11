@@ -13,6 +13,7 @@ export const forceConfig = {
     'armorQuality': false,              //true if AC >= 5
     'elvenOrDwarven': false,            //true if force is all Elven or Dwarven
     'percentSpecialMonsterTroops':0,    //percentage of troops with 2 or more * next to Hit Dice
+
 }
 
 export default class Force {
@@ -29,6 +30,7 @@ export default class Force {
         this.totalTroops = 0;
         this.basicForceRating = 0;
         this.troopClass = "";
+        this.fatigue = "none";      // none, moderate or serious
 
      /*   this.numberOfVictories = config.numberOfVictories || 0;
         this.numberOfRouts = randomIntFromInterval(0, 5);
@@ -58,6 +60,34 @@ export default class Force {
             "fastMovement": false              // The force has an average movement rate of 100' per turn
             };
 
+        this.battlefieldModifiers = {
+            'dominionOfLiege':false,        // +10 if force is in the dominion of their liege
+            'beatenFoeBefore':false,        // +10 if they have beaten this foe before
+            'troopClass':false,             // +10 if troop class is 2 levels higher than the enemy
+            'attackOnTheMarch':false,       // +30 if attacking an enemy on the march
+            'allyRouted':false,             // -10 if any accompanying force has routed
+            'favourableEnv':false,          // +25 if extremely favourable environment
+            'unfavourableEnv':false,        // -25 if extremely unfavourable environment
+            'infravisionNight':false,       // +20 if night battle and entire force has infravision
+            'higher':false,                 // +20 if higher than opponent
+            'halflingFieldsWoods':false,    // +20 for halfling force in fields or woods
+            'elvenWoods':false,             // +10 for elven force in woods
+            'dwarvenHillsMtns':false,       // +20 for dwarven force in hills or mountains
+            'mountedConstrained':false,     // -20 for mounted force in mountains, woods or stronghold
+            'mire':false,                   // -20 for force in mire (mud or marsh)
+            'shifting':false,               // -10 for force in shifting ground (snow/sand)
+            'defendInPlace':false,          // +10 if defending in place
+            'defendDefile':false,           // +50 if defending narrow defile, pass or bridge
+            'deepWater':false,              // +40 if attacker must cross deep water
+            'defendWall':false,             // +20 if defending in mountains, hills, rough terrain or behind wall
+            'stronghold':false,             // +50 if force is in a stronghold
+            'immuneFull':false,             // +150 if force is immune to enemy's attacks
+            'immune1pc':false,              // + 50 if 1% of force is immune to enemy's attacks
+            'immune80pc':false,             // +50 if force is immune to 80% of enemy's attacks
+            'moderateFatigue':false,        // -10 if force is moderately fatigued
+            'seriousFatigue':false          // -30 if force is seriously fatigued
+        }
+
         if(randomise){
             this.numberOfVictories = randomIntFromInterval(1, 10);
             this.numberOfRouts = randomIntFromInterval(0, 5);
@@ -68,6 +98,7 @@ export default class Force {
             this.secondWeapon = false;
             this.armorQuality = true;
             this.elvenOrDwarven = false;
+            this.fatigue = "none";
             this.generateUnits();
             this.generateOfficers();
         }
